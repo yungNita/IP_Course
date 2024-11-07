@@ -2,24 +2,24 @@
     <div class="Promotion1" :style="{ background: background }">
         <div>
             <h2>{{ title }}</h2>
-            <button @click="shopNow(Promotion)">Shop Now →</button>
+            <Butoon_Component :title="title" />
         </div>
         <img :src="image" alt="Promotion1 image" class="Promotion1Image" />
     </div>
 </template>
 
 <script>
+// import Button_Component from "./components/Button_Component.vue";
+
 export default {
     name: "Promotion1_Component",
+    components: {
+        // Button_Component
+    },
     props: {
         title: String,
         image: String,
         background: String,
-    },
-    methods: {
-        shopNow(Promotion){
-            alert("Shop Now!!" +Promotion.title);
-        },
     },
 };
 </script>

@@ -7,12 +7,13 @@ export default {
     name: "Button_Component" ,
     props: {
         buttonColor: String,
+        title: string,
     },
-    // methods: {
-    //     shopNow(){
-    //         alert("Shop Now!!")
-    //     },
-    // },
+    methods: {
+        shopNow(){
+            alert("Let's shop" + Promotion1_Component.title);
+        },
+    },
     
 };
 </script>
