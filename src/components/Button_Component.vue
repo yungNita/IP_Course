@@ -1,5 +1,5 @@
 <template>
-    <button  @click="shopNow()" :style="{ background: buttonColor }" class="shopButton">Shop Now →</button>
+    <button :style="{ background: buttonColor }" class="shopButton">Shop Now →</button>
 </template>
 
 <script>
@@ -8,11 +8,11 @@ export default {
     props: {
         buttonColor: String,
     },
-    methods: {
-        shopNow(){
-            alert("Shop Now!!")
-        },
-    },
+    // methods: {
+    //     shopNow(){
+    //         alert("Shop Now!!")
+    //     },
+    // },
     
 };
 </script>

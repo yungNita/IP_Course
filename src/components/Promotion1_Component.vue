@@ -2,6 +2,7 @@
     <div class="Promotion1" :style="{ background: background }">
         <div>
             <h2>{{ title }}</h2>
+            <button @click="shopNow(Promotion)">Shop Now →</button>
         </div>
         <img :src="image" alt="Promotion1 image" class="Promotion1Image" />
     </div>
@@ -14,6 +15,11 @@ export default {
         title: String,
         image: String,
         background: String,
+    },
+    methods: {
+        shopNow(Promotion){
+            alert("Shop Now!!" +Promotion.title);
+        },
     },
 };
 </script>
