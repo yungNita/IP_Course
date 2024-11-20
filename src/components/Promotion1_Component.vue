@@ -1,31 +1,44 @@
 <template>
     <div class="Promotion1" :style="{ background: background }">
-        <div>
-            <h2>{{ title }}</h2>
-            <Butoon_Component :title="title" />
-        </div>
-        <img :src="image" alt="Promotion1 image" class="Promotion1Image" />
+      <div>
+        <h2>{{ title }}</h2>
+      </div>
+      <img :src="image" alt="Promotion1 image" class="Promotion1Image" />
+      <Button_Component class="overlay-button" :buttonColor="buttonColor" />
     </div>
-</template>
-
-<script>
-// import Button_Component from "./components/Button_Component.vue";
-
-export default {
+  </template>
+  
+  <script>
+  import Button_Component from './Button_Component.vue'; 
+ 
+  
+  export default {
     name: "Promotion1_Component",
-    components: {
-        // Button_Component
-    },
+    
     props: {
-        title: String,
-        image: String,
-        background: String,
+      title: {
+        type: String,
+      },
+      image: {
+        type: String,
+      },
+      background: {
+        type: String,
+      },
+      buttonColor: {
+        type: String,
+      }
     },
-};
-</script>
+  
+    components: {
+      Button_Component  
+    },
 
-<style scoped>
-.Promotion1 {
+  };
+  </script>
+  
+  <style scoped>
+  .Promotion1 {
     border-radius: 10px;
     padding-left: 40px;
     width: 512px;
@@ -33,20 +46,27 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-h2 {
+    position: relative;  
+  }
+  
+  h2 {
     font-size: 24px;
     color: #253D4E;
     margin-bottom: 30px;
     line-height: 1.4;
-}
-
-.Promotion1Image {
+  }
+  
+  .Promotion1Image {
     width: 204px;
     height: 252px;
     object-fit: cover;
     border-radius: 10px;
-    
-}
-</style>
+  }
+  
+  .overlay-button {
+    position: absolute;
+    bottom: 48px;
+    left: 38px;
+  }
+  </style>
+  
