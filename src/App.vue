@@ -4,32 +4,31 @@
     <div class="CategorySection">
       <Category_Component
         v-for="Category_Component in Category_Components"
-        :key="Category_Component.title + Category_Component.itemCount"
-        :title="Category_Component.title"
-        :itemCount="Category_Component.itemCount"
+        :key="Category_Component.name + Category_Component.productCount"
+        :name="Category_Component.name"
+        :productCount="Category_Component.productCount"
         :image="Category_Component.image"
-        :background="Category_Component.background"
+        :color="Category_Component.color"
       ></Category_Component>
     </div>
 
-    <div class="Promotion1Section">
+    <div class="PromotionSection">
       <div
-        v-for="Promotion1_Component in Promotion1_Components"
-        :key="Promotion1_Component.title"
+        v-for="PromotionComponent in PromotionComponents"
+        :key="PromotionComponent.title"
         class="promotion-wrapper"
       >
         
-        <Promotion1_Component
-          :title="Promotion1_Component.title"
-          :background="Promotion1_Component.background"
-          :image="Promotion1_Component.image"
-        ></Promotion1_Component>
-
-        
-        <Button_Component
+        <PromotionComponent
+          :title="PromotionComponent.title"
+          :color="PromotionComponent.color"
+          :image="PromotionComponent.image"
+        ></PromotionComponent>
+       
+        <ButtonComponent
           class="overlay-button"
-          :buttonColor="Promotion1_Component.buttonColor"
-        ></Button_Component>
+          :buttonColor="PromotionComponent.buttonColor"
+        ></ButtonComponent>
       </div>
     </div>
   </div>
@@ -38,29 +37,29 @@
 
 <script>
 import Category_Component from "./components/Category_Component.vue";
-import Promotion1_Component from "./components/Promotion1_Component.vue";
-import Button_Component from "./components/Button_Component.vue";
+import PromotionComponent from "./components/PromotionComponent.vue";
+import ButtonComponent from "./components/ButtonComponent.vue";
 
 import axios from "axios";
-
 export default {
   name: "App",
   components: {
     Category_Component,
-    Promotion1_Component,
-    Button_Component,
+    PromotionComponent,
+    ButtonComponent,
   },
 
   data() {
     return {
       Category_Components: [],
-      Promotion1_Components: [],
-    };
+      PromotionComponents: [],
+    }
   },
 
   mounted() {
     this.fetchCategories(),
     this.fetchPromotions()
+    
   },
 
   methods: {
@@ -72,8 +71,8 @@ export default {
 
     fetchPromotions(){
       axios.get("http://localhost:3000/api/promotions").then((result)=>{
-        this.Promotion1_Components = result.data;
-      });
+        this.PromotionComponents = result.data;
+      }); 
     }
   }
 };
@@ -92,7 +91,7 @@ export default {
   margin-bottom: 40px;
 }
 
-.Promotion1Section {
+.PromotionSection {
   display: flex;
   gap: 20px;
   justify-content: center;

@@ -1,9 +1,9 @@
 <template>
-  <div class="CategoryCart" :style="{ background: background }">
+  <div class="CategoryCart" :style="{ background: color }">
     <img :src="image" alt="Category image" class="CategoryImage" />
     <div class="CategoryDetail">
-      <h3>{{ title }}</h3>
-      <p>{{ itemCount }} Items</p>
+      <h3>{{ name }}</h3>
+      <p>{{ productCount }} Items</p>
     </div>
   </div>
 </template>
@@ -13,16 +13,16 @@
 export default {
   name: "Category_Component",
   props: {
-    title: {
+    name: {
       type: String,
     },
-    itemCount: {
+    productCount: {
       type: Number,
     },
     image: {
       type: String,
     },
-    background: {
+    color: {
       type: String,
     }
   },
