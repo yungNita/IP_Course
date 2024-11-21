@@ -3,31 +3,30 @@
 
     <div class="CategorySection">
       <Category_Component
-        v-for="Category_Component in Category_Components"
-        :key="Category_Component.name + Category_Component.productCount"
-        :name="Category_Component.name"
-        :productCount="Category_Component.productCount"
-        :image="Category_Component.image"
-        :color="Category_Component.color"
+        v-for="category in categories"
+        :key="category.name + category.productCount"
+        :name="category.name"
+        :productCount="category.productCount"
+        :image="category.image"
+        :color="category.color"
       ></Category_Component>
     </div>
 
     <div class="PromotionSection">
       <div
-        v-for="PromotionComponent in PromotionComponents"
-        :key="PromotionComponent.title"
+        v-for="promotion in promotions"
+        :key="promotion.title"
         class="promotion-wrapper"
       >
-        
         <PromotionComponent
-          :title="PromotionComponent.title"
-          :color="PromotionComponent.color"
-          :image="PromotionComponent.image"
+          :title="promotion.title"
+          :color="promotion.color"
+          :image="promotion.image"
         ></PromotionComponent>
-       
+
         <ButtonComponent
           class="overlay-button"
-          :buttonColor="PromotionComponent.buttonColor"
+          :buttonColor="promotion.buttonColor"
         ></ButtonComponent>
       </div>
     </div>
@@ -35,22 +34,11 @@
 </template>
 
 <script>
+import { mapState } from "pinia";
+import { useProductStore } from "./store/productStore";
 import Category_Component from "./components/Category_Component.vue";
 import PromotionComponent from "./components/PromotionComponent.vue";
 import ButtonComponent from "./components/ButtonComponent.vue";
-
-import axios from "axios";
-
-export const useProductStore = defineStore('product', {
-  state: () => ({
-       groups: [],
-       promotions: [],
-       categories: [],
-       products: []
-  }),
-  getters: {},
-  actions: {},
-});
 
 export default {
   name: "App",
@@ -59,33 +47,32 @@ export default {
     PromotionComponent,
     ButtonComponent,
   },
-
+  computed: {
+    // Map state directly from the Pinia store
+    ...mapState(useProductStore, {
+      categories: (store) => store.categories,
+      promotions: (store) => store.promotions,
+    }),
+    filteredCategories() {
+      const productStore = useProductStore();
+      return productStore.getCategoriesByGroup(this.currentGroupName);
+    },
+    popularProducts() {
+      const productStore = useProductStore();
+      return productStore.getPopularProducts();
+    },
+  },
+  mounted() {
+    const productStore = useProductStore();
+    productStore.fetchCategories();
+    productStore.fetchPromotions();
+    productStore.fetchProducts();
+  },
   data() {
     return {
-      Category_Components: [],
-      PromotionComponents: [],
-    }
+      currentGroupName: "Group A", // Example group name
+    };
   },
-
-  mounted() {
-    this.fetchCategories(),
-    this.fetchPromotions()
-    
-  },
-
-  methods: {
-    fetchCategories(){
-      axios.get("http://localhost:3000/api/categories").then((result)=>{
-        this.Category_Components = result.data;
-      });
-    },
-
-    fetchPromotions(){
-      axios.get("http://localhost:3000/api/promotions").then((result)=>{
-        this.PromotionComponents = result.data;
-      }); 
-    }
-  }
 };
 </script>
 
