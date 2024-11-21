@@ -34,13 +34,24 @@
   </div>
 </template>
 
-
 <script>
 import Category_Component from "./components/Category_Component.vue";
 import PromotionComponent from "./components/PromotionComponent.vue";
 import ButtonComponent from "./components/ButtonComponent.vue";
 
 import axios from "axios";
+
+export const useProductStore = defineStore('product', {
+  state: () => ({
+       groups: [],
+       promotions: [],
+       categories: [],
+       products: []
+  }),
+  getters: {},
+  actions: {},
+});
+
 export default {
   name: "App",
   components: {
