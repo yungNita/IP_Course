@@ -1,4 +1,5 @@
 <template>
+  
   <div class="CategoryCart" :style="{ background: color }">
     <img :src="image" alt="Category image" class="CategoryImage" />
     <div class="CategoryDetail">
@@ -38,6 +39,7 @@ export default {
   align-items: center;
   border-radius: 10px;
   text-align: center;
+  margin-bottom: 45px;
 }
 
 .CategoryImage {

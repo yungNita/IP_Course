@@ -14,7 +14,7 @@ export default {
       image: String,
       color: String,
       buttonColor: String,
-      promotion: Object, // Assuming you pass a promotion object with content
+      promotion: Object, 
   },
 };
 </script>
@@ -30,6 +30,8 @@ export default {
     align-items: center;
     justify-content: space-between;
     position: relative;  
+    margin-right: 20px;
+    margin-left: none;
   }
   
   h2 {
