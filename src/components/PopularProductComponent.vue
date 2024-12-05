@@ -29,7 +29,7 @@
 
 <script>
 export default {
-    name: "ProductComponent",
+    name: "PopularProductComponent",
     props: {
         color: String,
         promotionAsPercentage: Number,
