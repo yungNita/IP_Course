@@ -53,7 +53,7 @@
 
 <script>
 import { mapState } from "pinia";
-import { useProductStore } from "./store/Products"
+import { useProductStore } from "./store/products"
 import Category_Component from "./components/Category_Component.vue";
 import PromotionComponent from "./components/PromotionComponent.vue";
 import ButtonComponent from "./components/ButtonComponent.vue";
