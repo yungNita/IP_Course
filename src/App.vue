@@ -36,16 +36,16 @@
     <MenuComponent :menuTitle="'Popular Products'"></MenuComponent>
     <div class="productSection">
       <PopularProductComponent
-      v-for="PopularProduct in PopularProducts"
-      :key="PopularProduct"
-      :color="PopularProduct.color"
-      :promotionAsPercentage="PopularProduct.ProductStatus"
-      :image="PopularProduct.image"
-      :name="PopularProduct.name"
-      :rating="PopularProduct.rating"
-      :size="PopularProduct.size"
-      :price="PopularProduct.price"
-      :realPrice="PopularProduct.realPrice"
+      v-for="product in products"
+      :key="product"
+      :color="product.color"
+      :promotionAsPercentage="product.ProductStatus"
+      :image="product.image"
+      :name="product.name"
+      :rating="product.rating"
+      :size="product.size"
+      :price="product.price"
+      :realPrice="product.realPrice"
       ></PopularProductComponent>
     </div>
   </div>
