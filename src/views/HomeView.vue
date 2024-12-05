@@ -35,18 +35,18 @@
   
       <MenuComponent :menuTitle="'Popular Products'"></MenuComponent>
       <div class="productSection">
-        <ProductComponent
-        v-for="product in products"
-        :key="product"
-        :color="product.color"
-        :promotionAsPercentage="product.ProductStatus"
-        :image="product.image"
-        :name="product.name"
-        :rating="product.rating"
-        :size="product.size"
-        :price="product.price"
-        :realPrice="product.realPrice"
-        ></ProductComponent>
+        <PopularProductComponent
+        v-for="PopularProduct in PopularProducts"
+        :key="PopularProduct"
+        :color="PopularProduct.color"
+        :promotionAsPercentage="PopularProduct.ProductStatus"
+        :image="PopularProduct.image"
+        :name="PopularProduct.name"
+        :rating="PopularProduct.rating"
+        :size="PopularProduct.size"
+        :price="PopularProduct.price"
+        :realPrice="PopularProduct.realPrice"
+        ></PopularProductComponent>
       </div>
     </div>
   </template>
@@ -55,7 +55,7 @@
   import { mapState } from "pinia";
   import MenuComponent from "@/components/MenuComponent.vue";
   import ButtonComponent from "@/components/ButtonComponent.vue";
-  import ProductComponent from "@/components/ProductComponent.vue";
+  import PopularProductComponent from "@/components/PopularProductComponent.vue";
   import Category_Component from "@/components/Category_Component.vue";
   import PromotionComponent from "@/components/PromotionComponent.vue";
   import { useProductStore } from "@/store/products";
@@ -67,7 +67,7 @@
       PromotionComponent,
       ButtonComponent,
       MenuComponent,
-      ProductComponent,
+      PopularProductComponent,
     },
     computed: {
       
