@@ -5,41 +5,39 @@
     <ShowCaseComponent />
     <MenuComponent :menuTitle="'Featured Categories'" />
 
-    <!-- Category Section -->
     <div class="CategorySection">
-      <Category_Component
-        v-for="category in categories"
-        :key="category.name + category.productCount"
-        :name="category.name"
-        :productCount="category.productCount"
-        :image="category.image"
-        :color="category.color" />
+      <router-link :to="`/categories/${category.name}`" class="category-link">
+        <Category_Component
+          :name="category.name"
+          :productCount="category.productCount"
+          :image="category.image"
+          :color="category.color" />
+      </router-link>
     </div>
 
-    <!-- Promotion Section -->
     <div class="PromotionSection">
       <div
         v-for="promotion in promotions"
         :key="promotion.title"
         class="promotion-wrapper">
-        <PromotionComponent
-          :title="promotion.title"
-          :color="promotion.color"
-          :image="promotion.image" />
+        <router-link :to="`/product/${promotion.title}`" class="promotion-link">
+          <PromotionComponent
+            :title="promotion.title"
+            :color="promotion.color"
+            :image="promotion.image" />
+        </router-link>
         <ButtonComponent
           class="overlay-button"
           :buttonColor="promotion.buttonColor" />
       </div>
     </div>
 
-    <!-- MenuComponent for Popular Products -->
     <MenuComponent :menuTitle="'Popular Products'" />
 
-    <!-- Product Section -->
     <div class="productSection">
       <PopularProductComponent
         v-for="product in products"
-        :key="product"
+        :key="product.name"
         :color="product.color"
         :promotionAsPercentage="product.ProductStatus"
         :image="product.image"
@@ -72,9 +70,9 @@ export default {
     ButtonComponent,
     MenuComponent,
     PopularProductComponent,
-    MenuItemComponent, // Register MenuItem
-    SearchBoxComponent, // Register SearchBox
-    ShowCaseComponent, // Register ShowCase
+    MenuItemComponent,
+    SearchBoxComponent,
+    ShowCaseComponent,
   },
   computed: {
     ...mapState(useProductStore, {
@@ -116,6 +114,7 @@ body {
 .PromotionSection {
   display: flex;
   justify-content: center;
+  gap: 20px;
 }
 
 .promotion-wrapper {
@@ -129,11 +128,18 @@ body {
   left: 38px;
 }
 
+.promotion-link,
+.category-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .productSection {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 15px;
 }
+
 .searchBox {
   position: absolute;
   top: 4.5%;
