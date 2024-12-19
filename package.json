@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix" 
     
   },
   "dependencies": {
