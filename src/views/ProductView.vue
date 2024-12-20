@@ -21,10 +21,10 @@ export default {
     ProductImageComponent,
     ProductDetailComponent,
   },
-  props: ["title"],
   computed: {
     promotionTitle() {
-      return this.title || "Product Details";
+      // Get the title from route params
+      return this.$route.params.productId || "Product Details";
     },
   },
 };

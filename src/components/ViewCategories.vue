@@ -39,12 +39,15 @@ export default {
   methods: {
     loadCategoryData() {
       const store = useProductStore();
-      const categoryId = Number(this.$route.params.categoriesId);
+      const categoryId = Number(this.$route.params.categoriesId); // Ensure `categoriesId` is treated as a number
 
+      // Ensure categories are loaded before finding the category
       if (!store.categories || store.categories.length === 0) {
+        // console.error("Categories data is not loaded yet.");
         return;
       }
 
+      // Find the category by ID
       const category = store.categories.find((cat) => cat.id === categoryId);
 
       if (category) {
@@ -78,6 +81,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-image: url("/path-to-background-image.jpg"); /* Optional */
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

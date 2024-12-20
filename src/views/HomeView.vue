@@ -5,24 +5,28 @@
     <ShowCaseComponent />
     <MenuComponent :menuTitle="'Featured Categories'" />
 
+    <!-- Categories Section -->
     <div class="CategorySection">
-      <router-link :to="`/categories/${category}`" class="category-link">
+      <router-link
+        v-for="category in categories"
+        :key="category.id"
+        :to="`/categories/${category.id}`"
+        class="category-link">
         <Category_Component
-          v-for="category in categories"
-          :key="category.name"
           :name="category.name"
           :productCount="category.productCount"
           :image="category.image"
-          :color="category.color"></Category_Component>
+          :color="category.color" />
       </router-link>
     </div>
 
+    <!-- Promotion Section -->
     <div class="PromotionSection">
       <div
         v-for="promotion in promotions"
-        :key="promotion.title"
+        :key="promotion.id"
         class="promotion-wrapper">
-        <router-link :to="`/product/${promotion.title}`" class="promotion-link">
+        <router-link :to="`/products/${promotion.id}`" class="promotion-link">
           <PromotionComponent
             :title="promotion.title"
             :color="promotion.color"
@@ -36,10 +40,11 @@
 
     <MenuComponent :menuTitle="'Popular Products'" />
 
+    <!-- Products Section -->
     <div class="productSection">
       <PopularProductComponent
         v-for="product in products"
-        :key="product.name"
+        :key="product.id"
         :color="product.color"
         :promotionAsPercentage="product.ProductStatus"
         :image="product.image"
@@ -136,13 +141,7 @@ body {
   flex-wrap: wrap;
 }
 
-.promotion-link {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+.promotion-link,
 .category-link {
   text-decoration: none;
   color: inherit;
