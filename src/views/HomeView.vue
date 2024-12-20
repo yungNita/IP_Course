@@ -6,12 +6,14 @@
     <MenuComponent :menuTitle="'Featured Categories'" />
 
     <div class="CategorySection">
-      <router-link :to="`/categories/${category.name}`" class="category-link">
+      <router-link :to="`/categories/${category}`" class="category-link">
         <Category_Component
+          v-for="category in categories"
+          :key="category.name"
           :name="category.name"
           :productCount="category.productCount"
           :image="category.image"
-          :color="category.color" />
+          :color="category.color"></Category_Component>
       </router-link>
     </div>
 
@@ -102,21 +104,19 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   min-height: 100vh;
-  width: 100%;
+  width: 1620px;
 }
 
 .CategorySection {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .PromotionSection {
   display: flex;
   justify-content: center;
-  gap: 20px;
 }
-
 .promotion-wrapper {
   position: relative;
   display: inline-block;
@@ -128,16 +128,28 @@ body {
   left: 38px;
 }
 
-.promotion-link,
+.productSection {
+  display: flex;
+  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  flex-wrap: wrap;
+}
+
+.promotion-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .category-link {
   text-decoration: none;
   color: inherit;
-}
-
-.productSection {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .searchBox {

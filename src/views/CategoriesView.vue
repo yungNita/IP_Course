@@ -23,7 +23,7 @@ export default {
   name: "CategoriesView",
   data() {
     return {
-      selectedCategory: null, // Holds the clicked category details
+      selectedCategory: null,
     };
   },
   computed: {
@@ -34,15 +34,12 @@ export default {
   },
   methods: {
     loadCategoryData() {
-      // Fetch the category name from the route params
       const categoryName = this.$route.params.categoryName;
 
-      // Find the category with the matching name
       const category = this.categories.find(
         (cat) => cat.name.toLowerCase() === categoryName.toLowerCase()
       );
 
-      // Set the selected category
       if (category) {
         this.selectedCategory = category;
       } else {

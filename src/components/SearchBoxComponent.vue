@@ -1,18 +1,14 @@
 <template>
   <div class="searchBox">
-    <!-- Left Section: All Categories with dropdown -->
     <div class="categories">
       <p class="categories-text">All Categories</p>
       <i class="arrow-down"></i>
     </div>
 
-    <!-- Divider Line -->
     <div class="divider"></div>
 
-    <!-- Input Field -->
     <input type="text" class="search-input" placeholder="Search for items" />
 
-    <!-- Search Icon -->
     <div class="search-icon">
       <img
         src="@/assets/logo/search.png"

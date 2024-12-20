@@ -12,18 +12,10 @@
 export default {
   name: "Category_Component",
   props: {
-    name: {
-      type: String,
-    },
-    productCount: {
-      type: Number,
-    },
-    image: {
-      type: String,
-    },
-    color: {
-      type: String,
-    },
+    name: String,
+    productCount: Number,
+    image: String,
+    color: String,
   },
 };
 </script>
@@ -32,9 +24,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
-body {
-  font-family: "Quicksand", sans-serif;
-}
 .CategoryCart {
   width: 136px;
   height: 183px;
@@ -55,10 +44,13 @@ body {
 h3 {
   color: #253d4e;
   font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  margin-top: -7px;
 }
 
 p {
   color: #b6b6b6;
   font-size: 12px;
+  font-family: "Quicksand", sans-serif;
 }
 </style>

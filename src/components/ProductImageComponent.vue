@@ -1,11 +1,9 @@
 <template>
   <div class="product-image-container">
-    <!-- Main Product Image -->
     <div class="main-image">
       <img :src="mainImage" alt="Product Image" />
     </div>
 
-    <!-- Thumbnails -->
     <div class="thumbnails">
       <button @click="prevImage" class="nav-button">&lt;</button>
       <div
@@ -27,12 +25,12 @@ export default {
   data() {
     return {
       images: [
-        "image1.png", // Replace with actual paths
-        "image2.png",
-        "image3.png",
-        "image4.png",
+        "/src/assets/images/ham.png",
+        "/src/assets/images/chili.png",
+        "/src/assets/images/beef.png",
+        "/src/assets/images/fish.png",
       ],
-      mainImage: "image1.png", // Default main image
+      mainImage: "/src/assets/images/mango.jpg",
       currentIndex: 0,
     };
   },
@@ -64,8 +62,8 @@ export default {
 }
 
 .main-image img {
-  width: 100%;
-  max-width: 400px;
+  width: 866px;
+  height: 696px;
   border-radius: 10px;
 }
 
@@ -77,8 +75,8 @@ export default {
 }
 
 .thumbnail-wrapper img {
-  width: 60px;
-  height: 60px;
+  width: 117px;
+  height: 117px;
   object-fit: cover;
   border-radius: 5px;
   cursor: pointer;
@@ -95,5 +93,7 @@ export default {
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 5px;
+  width: 54px;
+  height: 40px;
 }
 </style>

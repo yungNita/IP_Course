@@ -22,9 +22,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
-body {
-  font-family: "Quicksand", sans-serif;
-}
 .Promotion {
   border-radius: 10px;
   padding-left: 40px;
@@ -32,10 +29,7 @@ body {
   height: 300px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
   margin-right: 20px;
-  margin-left: none;
 }
 
 h2 {
@@ -43,6 +37,7 @@ h2 {
   color: #253d4e;
   margin-bottom: 30px;
   line-height: 1.4;
+  font-family: "Quicksand", sans-serif;
 }
 
 .PromotionImage {

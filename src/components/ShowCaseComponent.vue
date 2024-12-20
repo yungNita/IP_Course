@@ -1,6 +1,5 @@
 <template>
   <div class="showcase-banner">
-    <!-- Left Section: Text Content -->
     <div class="showcase-content">
       <h1 class="showcase-title">
         Don’t miss amazing <br />
@@ -8,7 +7,6 @@
       </h1>
       <p class="showcase-subtitle">Sign up for the daily newsletter</p>
 
-      <!-- Email Input and Subscribe Button -->
       <div class="subscribe-form">
         <div class="email-input">
           <i class="icon-envelope"></i>
@@ -18,7 +16,6 @@
       </div>
     </div>
 
-    <!-- Right Section: Image -->
     <div class="showcase-image">
       <img src="@/assets/images/banner1.png" alt="Grocery Bag" class="images" />
     </div>

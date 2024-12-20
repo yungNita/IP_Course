@@ -1,7 +1,6 @@
 <template>
   <div class="menu-container">
     <div class="firstRow">
-      <!-- Logo Section -->
       <div class="logo-section">
         <img src="@/assets/logo/storeLogo.png" alt="Melon Logo" class="logo" />
         <div class="logo-text">
@@ -31,7 +30,6 @@
       </div>
     </div>
 
-    <!-- Browse Categories -->
     <div class="secondRow">
       <div class="row2">
         <div class="browse-categories">
@@ -42,7 +40,6 @@
           </button>
         </div>
 
-        <!-- Menu Items -->
         <ul class="menu-items">
           <li v-for="(item, index) in menuItems" :key="index" class="menu-item">
             <span v-if="item.icon" class="menu-icon" v-html="item.icon"></span>
@@ -52,7 +49,6 @@
         </ul>
       </div>
 
-      <!-- Support and Contact Section -->
       <div class="support-section">
         <img src="@/assets/logo/headphone.png" class="headphone" />
         <div>
@@ -92,12 +88,12 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 .menu-container {
-  /* display: flex; */
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
   font-family: "Quicksand", sans-serif;
   background-color: #ffffff;
+  width: 1590px;
 }
 
 /* Logo Section */
