@@ -1,10 +1,10 @@
 <template>
   <div class="product-detail-page">
-    <!-- Promotion Title -->
     <h1 class="promotion-title">{{ promotionTitle }}</h1>
 
-    <!-- Product Components -->
     <div class="product-container">
+      <!-- Display the product image passed via route params -->
+      <img :src="productImage" alt="Product Image" class="productImage" />
       <ProductImageComponent />
       <ProductDetailComponent />
     </div>
@@ -22,9 +22,12 @@ export default {
     ProductDetailComponent,
   },
   computed: {
+    // Access the productId and image from route params
     promotionTitle() {
-      // Get the title from route params
       return this.$route.params.productId || "Product Details";
+    },
+    productImage() {
+      return this.$route.params.productImage; // Get the image passed in the route
     },
   },
 };
@@ -52,5 +55,11 @@ export default {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+}
+
+.productImage {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 </style>

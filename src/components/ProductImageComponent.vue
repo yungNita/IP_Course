@@ -25,9 +25,12 @@ export default {
   data() {
     return {
       images: [
-        "/src/assets/images/ham.png",
+        "/src/assets/images/mango.jpg",
+        "/src/assets/images/corn.png",
+        "/src/assets/images/passion.png",
         "/src/assets/images/chili.png",
-        "/src/assets/images/beef.png",
+        "/src/assets/images/almond.png",
+        "/src/assets/images/ham.png",
         "/src/assets/images/fish.png",
       ],
       mainImage: "/src/assets/images/mango.jpg",
@@ -82,15 +85,11 @@ export default {
   cursor: pointer;
 }
 
-.thumbnail-wrapper.active img {
-  border: 2px solid #3bb77e;
-}
-
 .nav-button {
   background-color: #3bb77e;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 20px;
   cursor: pointer;
   border-radius: 5px;
   width: 54px;

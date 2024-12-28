@@ -93,7 +93,7 @@ body {
   padding: 10px 20px;
   font-family: "Quicksand", sans-serif;
   background-color: #ffffff;
-  width: 1590px;
+  width: 1570px;
 }
 
 /* Logo Section */

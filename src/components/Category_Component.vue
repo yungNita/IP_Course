@@ -34,6 +34,10 @@ export default {
   text-align: center;
   margin-bottom: 45px;
 }
+.CategoryCart:hover {
+  cursor: pointer;
+  box-shadow: 20px 20px 40px 0 rgba(24, 24, 24, 0.7);
+}
 
 .CategoryImage {
   width: 120px;

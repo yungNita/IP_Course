@@ -6,7 +6,11 @@
       class="category-box"
       :style="{ backgroundColor: selectedCategory.color }">
       <h1 class="category-title">{{ selectedCategory.name }}</h1>
-      <p class="breadcrumbs">Home > Categories > {{ selectedCategory.name }}</p>
+      <p class="breadcrumbs">
+        <router-link to="/">Home</router-link> >
+        <router-link to="/">Categories</router-link> >
+        {{ selectedCategory.name }}
+      </p>
     </div>
 
     <!-- Error Message -->
@@ -61,16 +65,15 @@ export default {
 <style scoped>
 .categories-view {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   height: 100vh;
   background-color: #f9f9f9;
-  padding: 20px;
+  padding: 30px;
 }
 
 .category-box {
-  width: 80%;
+  width: 90%;
   height: auto;
   border-radius: 12px;
   padding: 40px;
@@ -95,6 +98,15 @@ export default {
   font-weight: 500;
   color: #555;
   opacity: 0.9;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
 }
 
 .error-message {

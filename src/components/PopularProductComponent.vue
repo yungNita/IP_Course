@@ -4,7 +4,11 @@
       <div class="ProductStatus" :style="{ background: color }">
         {{ promotionAsPercentage }}
       </div>
-      <img :src="image" alt="product Image" class="productImage" />
+      <img
+        :src="image"
+        alt="product Image"
+        class="productImage"
+        @click="goToProductView" />
     </div>
     <div class="content">
       <div class="type">Hodo Foods</div>
@@ -30,7 +34,7 @@
 
 <script>
 export default {
-  name: "ProductComponent",
+  name: "PopularProductComponent", // Make sure the component name is consistent
   props: {
     color: String,
     promotionAsPercentage: Number,
@@ -40,10 +44,23 @@ export default {
     size: String,
     price: String,
     instock: Number,
+    productId: String, // Ensure productId is passed down
   },
   methods: {
     addToCart() {
       console.log(`${this.name} added to the cart.`);
+    },
+    goToProductView() {
+      console.log("Navigating to product with ID:", this.productId);
+
+      // Pass the productId and image via route params
+      this.$router.push({
+        name: "product",
+        params: {
+          productId: this.productId,
+          productImage: this.image, // Pass the image URL to the ProductView
+        },
+      });
     },
   },
 };
@@ -62,7 +79,11 @@ body {
   border: solid 1px #bce3c9;
   border-radius: 10px;
   background: white;
-  /* box-shadow: 20px 20px 40px 0 rgba(24, 24, 24, 0.7); */
+}
+
+.productList:hover {
+  cursor: pointer;
+  box-shadow: 20px 20px 40px 0 rgba(24, 24, 24, 0.7);
 }
 .ProductStatus {
   width: 52px;

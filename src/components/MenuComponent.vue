@@ -35,7 +35,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 40px 0;
-  width: 1620px;
+  width: 1590px;
 }
 .menuItem {
   display: flex;

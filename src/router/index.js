@@ -18,10 +18,16 @@ const router = createRouter({
     {
       path: "/products/:productId",
       name: "product",
-      component: () => import("../views/ProductView.vue")
+      component: () => import("../views/ProductView.vue"),
+      props: true
     },
 
   ],
+
+  // eslint-disable-next-line no-unused-vars
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 }
+  }
 })
 
 export default router

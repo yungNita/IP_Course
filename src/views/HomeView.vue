@@ -1,7 +1,5 @@
 <template>
   <div class="app">
-    <SearchBoxComponent class="searchBox" />
-    <MenuItemComponent />
     <ShowCaseComponent />
     <MenuComponent :menuTitle="'Featured Categories'" />
 
@@ -45,14 +43,14 @@
       <PopularProductComponent
         v-for="product in products"
         :key="product.id"
-        :color="product.color"
-        :promotionAsPercentage="product.ProductStatus"
+        :productId="product.id"
         :image="product.image"
         :name="product.name"
         :rating="product.rating"
         :size="product.size"
         :price="product.price"
-        :realPrice="product.realPrice" />
+        :color="product.color"
+        :promotionAsPercentage="product.promotionAsPercentage" />
     </div>
   </div>
 </template>
@@ -64,9 +62,7 @@ import ButtonComponent from "@/components/ButtonComponent.vue";
 import PopularProductComponent from "@/components/PopularProductComponent.vue";
 import Category_Component from "@/components/Category_Component.vue";
 import PromotionComponent from "@/components/PromotionComponent.vue";
-import SearchBoxComponent from "@/components/SearchBoxComponent.vue";
 import ShowCaseComponent from "@/components/ShowCaseComponent.vue";
-import MenuItemComponent from "@/components/MenuItemComponent.vue";
 import { useProductStore } from "@/store/products";
 
 export default {
@@ -77,8 +73,6 @@ export default {
     ButtonComponent,
     MenuComponent,
     PopularProductComponent,
-    MenuItemComponent,
-    SearchBoxComponent,
     ShowCaseComponent,
   },
   computed: {
@@ -149,11 +143,5 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-}
-
-.searchBox {
-  position: absolute;
-  top: 4.5%;
-  left: 16%;
 }
 </style>
