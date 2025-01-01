@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
-import Page1 from "@/views/Page1View.vue";
-import Page2 from "@/views/Page2View.vue";
-import Page3 from "@/views/Page3View.vue";
+import PageView from "@/views/PageView.vue";
+import SectionView from "@/views/SectionView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,22 +12,16 @@ const router = createRouter({
       redirect: "/page/1",
       children: [
         {
-          path: "page/1",
-          component: Page1,
-          name: "Page1",
-
-        },
-        {
-          path: "page/2",
-          component: Page2,
-          name: "Page2",
-          
-        },
-        {
-          path: "page/3",
-          component: Page3,
-          name: "Page3",
-          
+          path: "page/:pageNumber",
+          component: PageView,
+          name: "page",
+          children: [
+            {
+              path: "section/:sectionNumber",
+              component: SectionView,
+              name: "section",
+            }
+          ]
         },
       ],
     },

@@ -2,9 +2,9 @@
   <div>
     <HeaderComponent />
     <div class="layout">
-      <main>
-        <router-view />
-      </main>
+      <MenuComponent />
+
+      <router-view class="page_wrap" />
     </div>
     <FooterComponent />
   </div>
@@ -13,23 +13,27 @@
 <script>
 import HeaderComponent from "@/components/headerComponent.vue";
 import FooterComponent from "@/components/footerComponent.vue";
-
+import MenuComponent from "@/components/MenuComponent.vue";
 export default {
   components: {
     HeaderComponent,
     FooterComponent,
+    MenuComponent,
   },
 };
 </script>
 
-<style>
+<style scoped>
 .layout {
   display: flex;
-  flex-grow: 1;
-  height: 100%;
+  height: 60vh;
+  border-width: 0 1px 0 1px;
+  border-color: black;
+  border-style: solid;
 }
-main {
-  flex-grow: 1;
-  padding: 20px;
+.page_wrap {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.7rem;
 }
 </style>
