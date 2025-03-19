@@ -8,6 +8,8 @@ services:
       - ./php.ini:/usr/local/etc/php/php.ini
     networks:
       - laravel
+    expose:
+      - "9000"
   webserver:
     image: nginx:latest
     container_name: nginx_server
@@ -22,7 +24,7 @@ services:
     image: mysql:8.0
     container_name: mysql_db
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: laravel
