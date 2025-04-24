@@ -25,7 +25,7 @@ class CategoryController extends Controller
         $category->save();
         return $category;
     }
-
+    
     public function getCategory($categoryId) {
         return response()->json(Category::findOrFail($categoryId));
     }
