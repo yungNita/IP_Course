@@ -149,7 +149,7 @@ class CategoryTest extends TestCase
      */
     public function test_invalid_category_id_returns_404()
     {
-        $response = $this->getJson('/api/category/999999');
+        $response = $this->getJson('/api/category/111');
         $response->assertStatus(404);
     }
 
