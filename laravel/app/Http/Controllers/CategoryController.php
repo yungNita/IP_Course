@@ -26,10 +26,12 @@ class CategoryController extends Controller
         return $category;
     }
     
+    // Get a single category by ID
     public function getCategory($categoryId) {
         return response()->json(Category::findOrFail($categoryId));
     }
 
+    // update
     public function updateCategory(Request $request, $categoryId){
         $category = Category::findOrFail($categoryId);
         $request->validate([
@@ -41,6 +43,7 @@ class CategoryController extends Controller
         return $category;
     }
 
+    // delete
     public function deleteCategory(Request $request, $categoryId){
         $category = Category::findOrFail($categoryId);
         $category->delete();
